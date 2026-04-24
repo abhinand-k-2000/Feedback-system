@@ -3,7 +3,7 @@ type ApiResponse<T> = {
     data?: T;
 };
 
-const BASE_URL = "http://localhost:8003/api";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:8003/api";
 
 export const getApiData = <T,>(value: T | ApiResponse<T>): T => {
     if (value && typeof value === "object" && "data" in (value as ApiResponse<T>)) {
